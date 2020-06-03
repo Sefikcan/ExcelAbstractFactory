@@ -1,0 +1,16 @@
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\bin\Debug\netcoreapp3.1\ExcelAbstractFactory.exe
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\obj\Debug\netcoreapp3.1\ExcelAbstractFactory.AssemblyInfoInputs.cache
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\obj\Debug\netcoreapp3.1\ExcelAbstractFactory.AssemblyInfo.cs
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\obj\Debug\netcoreapp3.1\ExcelAbstractFactory.csproj.CoreCompileInputs.cache
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\bin\Debug\netcoreapp3.1\ExcelAbstractFactory.deps.json
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\bin\Debug\netcoreapp3.1\ExcelAbstractFactory.runtimeconfig.json
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\bin\Debug\netcoreapp3.1\ExcelAbstractFactory.runtimeconfig.dev.json
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\bin\Debug\netcoreapp3.1\ExcelAbstractFactory.dll
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\bin\Debug\netcoreapp3.1\ExcelAbstractFactory.pdb
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\bin\Debug\netcoreapp3.1\System.IO.Packaging.dll
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\obj\Debug\netcoreapp3.1\ExcelAbstractFactory.csproj.CopyComplete
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\obj\Debug\netcoreapp3.1\ExcelAbstractFactory.dll
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\obj\Debug\netcoreapp3.1\ExcelAbstractFactory.pdb
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\obj\Debug\netcoreapp3.1\ExcelAbstractFactory.genruntimeconfig.cache
+D:\WorkSpaces\Back-end\Other\ExcelAbstractFactory\ExcelAbstractFactory\obj\Debug\netcoreapp3.1\ExcelAbstractFactory.csprojAssemblyReference.cache
