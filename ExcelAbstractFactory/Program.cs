@@ -74,10 +74,10 @@ namespace ExcelAbstractFactory
                 client.EnableSsl = true;
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.UseDefaultCredentials = false;
-                client.Credentials = new NetworkCredential("sefikcankanbertest@gmail.com", "q1w2e3r4T5");
+                client.Credentials = new NetworkCredential("xxx@gmail.com", "xxxx");
 
-                mail.From = new MailAddress("sefikcankanbertest@gmail.com", "test");
-                mail.To.Add(new MailAddress("sefikcankanber@outlook.com"));
+                mail.From = new MailAddress("sxt@gmail.com", "test");
+                mail.To.Add(new MailAddress("xxx@outlook.com"));
                 mail.Subject = "Send excel email attachment c#";
                 mail.IsBodyHtml = true;
                 mail.Body = "<html><head></head><body>Attached is the Excel sheet.</body></html>";
