@@ -1,5 +1,4 @@
-﻿using DocumentFormat.OpenXml.Office2010.ExcelAc;
-using ExcelAbstractFactory.Data;
+﻿using ExcelAbstractFactory.Data;
 using ExcelAbstractFactory.Models;
 using System;
 using System.Collections.Generic;
@@ -13,7 +12,7 @@ namespace ExcelAbstractFactory
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            List<EmailAttachModel> emailAttachModels = new List<EmailAttachModel>();
 
             #region tek sheet için
 
@@ -37,34 +36,41 @@ namespace ExcelAbstractFactory
             var dataList2 = LocalData.GetProductList2();
 
             List<ExcelByteModel<Product>> excelByteModels = new List<ExcelByteModel<Product>>();
-
             var excelByte1 = new ExcelByteModel<Product>()
             {
                 ExcelItemList = dataList1,
                 SheetName = "Sheet1"
             };
-
             excelByteModels.Add(excelByte1);
-
             var excelByte2 = new ExcelByteModel<Product>()
             {
                 ExcelItemList = dataList2,
                 SheetName = "Sheet2"
             };
-
             excelByteModels.Add(excelByte2);
 
             IExcelFactory factory = ExcelFactory(ExcelBrandType.OpenXml);
-
             var excelbytes = factory.CreateExcelBytes();
             var byteData = excelbytes.ToExcelBytesMultiSheets(excelByteModels);
-            SendEmail(byteData);
+
+            EmailAttachModel emailAttachModel = new EmailAttachModel
+            {
+                ByteData = byteData,
+                FullFileName = "ExcelSheet1.xlsx", //queueu ile buralar generic yapıya alınabilir
+                MediaType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            };
+
+            emailAttachModels.Add(emailAttachModel);
+
             #endregion
+
+
+            SendEmail(emailAttachModels);
         }
 
-        static void SendEmail(byte[] byteData)
+        static void SendEmail(List<EmailAttachModel> emailAttachModels)
         {
-            MemoryStream ms = new MemoryStream(byteData);
+            var msList = new List<MemoryStream>();
 
             using (SmtpClient client = new SmtpClient())
             using (MailMessage mail = new MailMessage())
@@ -83,7 +89,17 @@ namespace ExcelAbstractFactory
                 mail.Body = "<html><head></head><body>Attached is the Excel sheet.</body></html>";
 
                 //attach the excel file to the message
-                mail.Attachments.Add(new Attachment(ms, "ExcelSheet1.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"));
+                //mail.Attachments.Add(new Attachment(ms, "ExcelSheet1.xlsx", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"));
+
+                foreach (var emailAttachModel in emailAttachModels)
+                {
+                    var ms = new MemoryStream(emailAttachModel.ByteData);
+                    msList.Add(ms);
+
+                    var mailAttachment = new Attachment(ms, emailAttachModel.FullFileName, emailAttachModel.MediaType);
+                    mail.Attachments.Add(mailAttachment);
+                }
+
 
                 //send the mail
                 try
@@ -95,7 +111,10 @@ namespace ExcelAbstractFactory
                     //handle error
                 }
             }
-            ms.Dispose();
+            foreach (var ms in msList)
+            {
+                ms.Dispose();
+            }
         }
 
         static IExcelFactory ExcelFactory(ExcelBrandType excelBrandType)
